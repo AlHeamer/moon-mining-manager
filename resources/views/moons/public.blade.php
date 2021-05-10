@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1>Alliance Moons</h1>
+    <h1>BNI Moons</h1>
 
     <p class="center">
         To inquire about renting a moon, please use the
@@ -75,7 +75,7 @@
                         <td class="numeric">{{ number_format($moon->monthly_rental_fee) }}</td>
                         <td class="numeric">{{ number_format($moon->monthly_corp_rental_fee) }}</td>
                         <td>
-                            {{ $moon->status_flag == \App\Models\Moon::STATUS_ALLIANCE_OWNED ? 'Alliance owned' : '' }}
+                            {{ $moon->status_flag == \App\Models\Moon::STATUS_ALLIANCE_OWNED ? 'BNI owned' : '' }}
                             {{ $moon->status_flag == \App\Models\Moon::STATUS_LOTTERY_ONLY ? 'Lottery only' : '' }}
                             {{ $moon->status_flag == \App\Models\Moon::STATUS_RESERVED ? 'Reserved' : '' }}
                         </td>

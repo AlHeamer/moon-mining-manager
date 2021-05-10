@@ -109,7 +109,7 @@
 
             const $select = $('<select/>');
             $select.append('<option value="0">Available</option>');
-            $select.append('<option value="1">Alliance owned</option>');
+            $select.append('<option value="1">BNI owned</option>');
             $select.append('<option value="2">Lottery only</option>');
             $select.append('<option value="3">Reserved</option>');
             $select.val($moonStatus.data('oldValue'));
@@ -160,7 +160,7 @@
             if (statusFlag === 0) {
                 $textWrap.text('Available');
             } else if (statusFlag === 1) {
-                $textWrap.text('Alliance owned');
+                $textWrap.text('BNI owned');
             } else if (statusFlag === 2) {
                 $textWrap.text('Lottery only');
             } else if (statusFlag === 3) {

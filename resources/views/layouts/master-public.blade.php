@@ -23,9 +23,19 @@
                 line-height: 20px;
             }
 
-            .logo {
+            .alliance-logo {
                 display: block;
                 margin: 10px auto;
+                position: relative;
+                top: 192px;
+                left: 96px;
+                width: 64px;
+                height: 64px;
+            }
+            .logo {
+                width: 256px;
+                height: 256px;
+                margin: auto;
             }
 
             h1 {
@@ -228,7 +238,9 @@
 
     <body class="@yield('body-class')">
         @include('common.public-nav', ['page' => $page])
-        <img src="/images/logo.png" alt="Brave Collective" class="logo">
+        <div class="logo" style="background: url('https://images.evetech.net/corporations/98169165/logo')">
+            <img src="https://images.evetech.net/alliances/99003214/logo" alt="Brave Collective" class="alliance-logo">
+        </div>
 
         @yield('content')
 

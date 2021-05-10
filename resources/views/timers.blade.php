@@ -28,7 +28,7 @@
         </div>
     @endif
 
-    <h1>Active Alliance Moon Mining Extraction Timers</h1>
+    <h1>Active BNI Moon Mining Extraction Timers</h1>
 
     <h1 id="current_time">{{ gmdate('H:i:s, l j F,') }} EVE</h1>
 

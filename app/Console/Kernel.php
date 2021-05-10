@@ -73,14 +73,14 @@ class Kernel extends ConsoleKernel
 
         // Pull the mining activity for the day and store it.
         if ($rentCorporationId && $rentUserId) {
-            $schedule->job(new PollMiningObservers($rentCorporationId))->dailyAt('12:00');
+            $schedule->job(new PollMiningObservers($rentCorporationId))->dailyAt('13:00');
         }
         if ($taxCorporationId && $taxUserId) {
-            $schedule->job(new PollMiningObservers($taxCorporationId))->dailyAt('12:05');
+            $schedule->job(new PollMiningObservers($taxCorporationId))->dailyAt('13:05');
         }
 
         // Check for any new ores that have been mined where we don't have details of their component materials.
-        $schedule->job(new UpdateReprocessedMaterials)->twiceDaily(4, 16);
+        $schedule->job(new UpdateReprocessedMaterials)->twiceDaily(0, 12);
 
         // Update the stored prices for materials and ores.
         $schedule->job(new UpdateMaterialValues)->dailyAt('05:00');
@@ -92,7 +92,7 @@ class Kernel extends ConsoleKernel
         $schedule->job(new ArchiveReprocessedMaterialsHistory)->dailyAt('06:55');
 
         // Send weekly invoices.
-        $schedule->job(new GenerateInvoices)->weekly()->mondays()->at('07:00');
+        $schedule->job(new GenerateInvoices)->weekly()->wednesdays()->at('07:00');
 
         // Weekly check of miner corporation membership.
         $schedule->job(new CorporationChecks)->weekly()->saturdays()->at('20:00');

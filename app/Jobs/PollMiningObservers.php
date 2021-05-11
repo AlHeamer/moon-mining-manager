@@ -37,6 +37,18 @@ class PollMiningObservers implements ShouldQueue
         // Grab all of the refineries and loop through them.
         $refineries = Refinery::where('corporation_id', $this->corporationId)->where('available', 1)->get();
         $delay_counter = 0;
+        // Grab only refineries which are not rented and loop through them.
+        /*
+           //BNI Change, no longer required? - don't poll mining observers that are rented
+           $refineries = Refinery::where('corporation_id', $this->corporationId)
+            ->whereNotIn('observer_id', function($query) {
+                $query->select('refinery_id')
+                    ->from('renters')
+                    ->whereNull('end_date')
+                    ->get();
+        })
+        ->get();
+        */
 
         Log::info('PollMiningObservers: creating jobs to poll ' . count($refineries) . ' refineries');
 

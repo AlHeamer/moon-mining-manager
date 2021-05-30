@@ -14,6 +14,7 @@
             'name' => $refinery->name,
             'amount' => $refinery->income,
             'is_active' => $refinery->extraction_start_time,
+            'is_refinery' => true,
         ])
     @endforeach
 

@@ -56,8 +56,8 @@ class CalculateRent
             $type = Type::find($type_id);
             $units = $oreVolume / $type->volume;
 
-            // Base Tax Rate of 5%
-            $taxRate = 5;
+            // Base Tax Rate of 7.5% for individuals and 5% for corporations
+            $taxRate = $contractType === Renter::TYPE_CORPORATION ? 5 : 7.5;
 
             // Addition of previously-taxable value for each ore.
             switch ($type->groupID) {

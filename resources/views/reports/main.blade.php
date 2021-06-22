@@ -9,7 +9,7 @@
         <div class="col-12">
 
             <div class="card-heading">Daily mining ledger</div>
-            
+
             <div class="card">
                 <canvas id="chart-mining"></canvas>
                 <script>
@@ -27,7 +27,7 @@
                                     data: [
                                         @foreach ($dates as $row)
                                             @if (isset($mining[$row]))
-                                                '{{ $mining[$row] }}',
+                                                '{{ $mining[$row] * 10 }}',
                                             @else
                                                 '0',
                                             @endif
@@ -54,7 +54,7 @@
                                         ticks: {
                                             beginAtZero: true,
                                             callback: function (value) {
-                                                return value.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, '$1,');;
+                                                return value.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, '$1,') + ' m³';
                                             }
                                         }
                                     }]
@@ -84,7 +84,7 @@
         <div class="col-12">
 
             <div class="card-heading">Daily income ledger</div>
-            
+
             <div class="card">
                 <canvas id="chart-income"></canvas>
                 <script>
@@ -129,7 +129,7 @@
                                         ticks: {
                                             beginAtZero: true,
                                             callback: function (value) {
-                                                return value.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+                                                return value.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, '$1,') + ' ISK';
                                             }
                                         }
                                     }]
